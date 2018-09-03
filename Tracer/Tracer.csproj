@@ -41,5 +41,9 @@
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="render.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
