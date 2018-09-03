@@ -1,12 +1,18 @@
 ﻿using System;
 namespace Tracer
 {
-    public class Ray
+    public struct Ray
     {
         public Vec3 A;
         public Vec3 B;
 
         public Ray(Vec3 origin, Vec3 direction) {
+            A = origin;
+            B = direction;
+        }
+
+        public void Set(Vec3 origin, Vec3 direction)
+        {
             A = origin;
             B = direction;
         }

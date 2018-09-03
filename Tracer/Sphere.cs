@@ -33,7 +33,7 @@ namespace Tracer
             }
 
             hit.hitpoint = ray.PointAtParam(hit.t);
-            hit.normal = Vec3.Normalize(hit.hitpoint - center);
+            hit.normal = (hit.hitpoint - center)/radius;
             hit.material = material;
             return isHit;
         }
