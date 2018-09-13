@@ -11,5 +11,6 @@ namespace Tracer
     public interface IHitable
     {
         bool Hit(Ray ray, double tmin, double tmax, out HitInfo hit);
+        AABB BoundingBox();
     }
 }

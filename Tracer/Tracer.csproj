@@ -36,6 +36,8 @@
     <Compile Include="HitList.cs" />
     <Compile Include="IMaterial.cs" />
     <Compile Include="Util.cs" />
+    <Compile Include="BVHNode.cs" />
+    <Compile Include="AABB.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.ServiceProcess" />

@@ -14,6 +14,14 @@ namespace Tracer
             this.material = material;
         }
 
+        public AABB BoundingBox()
+        {
+            AABB box;
+            box.Min = center - Vec3.one * radius;
+            box.Max = center + Vec3.one * radius;
+            return box;
+        }
+
         public bool Hit(Ray ray, double tmin, double tmax, out HitInfo hit)
         {
             bool isHit = HitCheck(ray, out double sol1, out double sol2);
@@ -58,5 +66,7 @@ namespace Tracer
             }
             return hit;
         }
+
+
     }
 }

@@ -8,8 +8,8 @@ namespace Tracer
     {
         const int maxDepth              = 25;
         const int numSamples            = 100;
-        const int width                 = 1440;
-        const int height                = 900;
+        const int width                 = 144;
+        const int height                = 90;
 
         static readonly String filename = "render.ppm";
 
@@ -29,9 +29,9 @@ namespace Tracer
 
             Vec3 random = Vec3.zero;
             Vec3 expoint = new Vec3(4.0, 0.2, 0.0);
-            for (int i = -6; i < 6; i++)
+            for (int i = -11; i < 11; i++)
             {
-                for (int j = -6; j < 6; j++)
+                for (int j = -11; j < 11; j++)
                 {
                     double choose_mat = rng.NextDouble();
                     random.Set(i + 0.9 * rng.NextDouble(), 0.2, j + 0.9 * rng.NextDouble());
@@ -60,6 +60,8 @@ namespace Tracer
             Vec3    camPosition = new Vec3(9, 1.95, 2.3);
             double  distToFocus = Vec3.Distance(camPosition, Vec3.front);
             Camera  cam         = new Camera(camPosition, Vec3.front, Vec3.up, 30, width/(double)height, 0.01);
+
+            world.Compute();
 
             for (int y = height - 1; y >= 0; y--)
             {

@@ -3,9 +3,9 @@ namespace Tracer
 {
     public struct Vec3
     {
-        public static readonly Vec3 zero = new Vec3(0.0, 0.0, 0.0);
-        public static readonly Vec3 one = new Vec3(1.0, 1.0, 1.0);
-        public static readonly Vec3 up = new Vec3(0.0, 1.0, 0.0);
+        public static readonly Vec3 zero  = new Vec3(0.0, 0.0, 0.0);
+        public static readonly Vec3 one   = new Vec3(1.0, 1.0, 1.0);
+        public static readonly Vec3 up    = new Vec3(0.0, 1.0, 0.0);
         public static readonly Vec3 right = new Vec3(1.0, 0.0, 0.0);
         public static readonly Vec3 front = new Vec3(0.0, 0.0, -1.0);
 
@@ -21,9 +21,26 @@ namespace Tracer
         public double B { get { return z; } set { z = value; } }
 
         public double SqrLength { get { return x * x + y * y + z * z; } }
-        public double Length { get { return Math.Sqrt(x * x + y * y + z * z); }}
+        public double Length    { get { return Math.Sqrt(x * x + y * y + z * z); }}
+        public Vec3 Normalized  { get { return this / Length; } }
 
-        public Vec3 Normalized{ get { return this / Length; } }
+        public double this[int key]
+        {
+            get
+            {
+                switch (key)
+                {
+                    case 0:  return x;
+                    case 1:  return y;
+                    case 2:  return z;
+                    default: throw new IndexOutOfRangeException("Vec3 only has 3 indices");
+                }
+            }
+            set
+            {
+
+            }            
+        }
 
         public Vec3(double e0, double e1, double e2)
         {
